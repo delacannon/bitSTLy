@@ -3,6 +3,7 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import {
   OrbitControls,
   AdaptiveDpr,
+  Loader,
   AdaptiveEvents,
   Environment,
 } from "@react-three/drei";
@@ -86,6 +87,7 @@ function RightPanel() {
             <Face />
           </Suspense>
         </Canvas>
+        <Loader />
       </div>
       {svg !== "" && (
         <>
