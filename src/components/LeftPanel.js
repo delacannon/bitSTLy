@@ -56,7 +56,7 @@ function LeftPanel() {
   const { sprites, setGameData } = useStore((state) => state);
 
   return (
-    <div className="flex-1 z-20">
+    <div className="flex-1 z-20  relative">
       <div className="w-full flex h-screen bg-red-200 relative ">
         <div
           className="h-screen w-8 p-4 absolute -right-8"
@@ -68,6 +68,12 @@ function LeftPanel() {
         {!sprites && (
           <div className="w-64 m-auto">
             <InputFile />
+            <a
+              href="https://delacannon.itch.io/"
+              className="text-yellow-800 hover:text-gray-800 cursor-pointer absolute left-4 bottom-4 uppercase font-body text-2xl text-center"
+            >
+              https://delacannon.itch.io/
+            </a>
           </div>
         )}
         {sprites && (
