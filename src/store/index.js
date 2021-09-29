@@ -25,6 +25,13 @@ const [useStore] = create((set, get) => ({
     link.click();
   },
   setGameData: (gamedata) => {
+    if (gamedata === null) {
+      return set({
+        sprites: null,
+        gamedata: null,
+      });
+    }
+
     let sprites = [];
 
     for (let img in gamedata.sprites) {

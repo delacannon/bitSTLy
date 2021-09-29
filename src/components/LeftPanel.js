@@ -53,7 +53,7 @@ const InputFile = () => {
 };
 
 function LeftPanel() {
-  const { sprites } = useStore((state) => state);
+  const { sprites, setGameData } = useStore((state) => state);
 
   return (
     <div className="flex-1 z-20">
@@ -71,7 +71,19 @@ function LeftPanel() {
           </div>
         )}
         {sprites && (
-          <div className="p-4 overflow-y-auto">
+          <div className="p-4 overflow-y-auto relative">
+            <p
+              onClick={() => setGameData(null)}
+              className="absolute left-4 bottom-4 hover:bg-black text-center hover:text-white text-2xl text-gray-900 bg-yellow-200 p-1 rounded-lg uppercase"
+            >
+              Change file
+            </p>
+            <a
+              href="https://github.com/delacannon/bitSTLy"
+              className="absolute right-4 bottom-4 hover:bg-black text-center hover:text-white text-2xl text-gray-900 bg-yellow-200 p-1 rounded-lg uppercase"
+            >
+              Github
+            </a>
             <p className="font-bold mx-auto border-b-2 mb-2 text-3xl text-gray-600 uppercase">
               Sprites:
             </p>

@@ -3,7 +3,6 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import {
   OrbitControls,
   AdaptiveDpr,
-  Loader,
   AdaptiveEvents,
   Environment,
 } from "@react-three/drei";
@@ -17,12 +16,14 @@ const Face = () => {
   const ref = useRef();
   const { paths } = useLoader(
     SVGLoader,
-    `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`
+    `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`
   );
 
   useEffect(() => {
     setMesh(ref);
-    console.log(ref);
+    console.log(
+      `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`
+    );
   }, [ref]);
 
   return (
@@ -87,7 +88,6 @@ function RightPanel() {
             <Face />
           </Suspense>
         </Canvas>
-        <Loader />
       </div>
       {svg !== "" && (
         <>
